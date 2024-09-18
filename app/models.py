@@ -17,6 +17,8 @@ class NguoiDung(Base):
     tuoi = Column(Integer)
     anh_dai_dien = Column(String(255))
     refresh_token = Column(Text)
+    
+    hinh_anh = relationship("HinhAnh",back_populates="nguoi_dung")
 
 
 class HinhAnh(Base):
@@ -28,7 +30,7 @@ class HinhAnh(Base):
     mo_ta = Column(String(255))
     nguoi_dung_id = Column(ForeignKey('nguoi_dung.nguoi_dung_id'), index=True)
 
-    nguoi_dung = relationship('NguoiDung')
+    nguoi_dung = relationship('NguoiDung', back_populates="hinh_anh")
 
 
 class BinhLuan(Base):
