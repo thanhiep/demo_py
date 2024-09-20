@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr
+from typing import Optional
 
 class Image(BaseModel):
     hinh_id: int
@@ -18,7 +19,7 @@ class User(BaseModel):
     email: str
     ho_ten: str
     tuoi: int
-    anh_dai_dien: str
+    anh_dai_dien: Optional[str]
     
     class Config:
         orm_mode = True
